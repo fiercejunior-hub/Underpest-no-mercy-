@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"dialogue_functions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"dialogue_functions",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Dialogue/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
