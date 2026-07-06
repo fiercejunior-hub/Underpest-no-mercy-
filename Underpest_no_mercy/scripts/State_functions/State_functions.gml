@@ -8,10 +8,10 @@ function state_normal() {
 	
 	hspd = _ih * move_speed;
 	vspd = _iv * move_speed;
+		
+	// Moving and colliding
+	scr_move_and_collide();
 	
 	// Animation
 	get_sprite_state();
-	
-	// Moving and colliding
-	scr_move_and_collide();
 }
