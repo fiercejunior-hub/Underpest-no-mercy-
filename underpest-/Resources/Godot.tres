@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Datos_monstruo" format=3 uid="uid://dm3frv5hlpa67"]
+
+[ext_resource type="Script" uid="uid://b4xaqdqwb1biv" path="res://Resources/monsters.gd" id="1_kfpvr"]
+
+[resource]
+script = ExtResource("1_kfpvr")
+Mname = "Godot"
+Health = 20
+MaxHealth = 20
+Dmg = 5
+Defense = 4
+Quantity_gold = 10
+Quiantity_xp = 10
+posible_message = Array[String](["You feel weak", "We dont want this", "You food is infected by stranger infection", "You feel strange, you can't do MERCY."])
+first_message = "HELLO?"
+metadata/_custom_type_script = "uid://b4xaqdqwb1biv"

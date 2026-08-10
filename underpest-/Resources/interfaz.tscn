@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b67mmia3fvqgn"]
+
+[ext_resource type="Script" uid="uid://cuc8teefq40gh" path="res://Resources/interfaz.gd" id="1_rj1l6"]
+
+[node name="INTERFAZ" type="Control" unique_id=28650824]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rj1l6")
+
+[node name="Tittle" type="Label" parent="." unique_id=807439369]
+layout_mode = 0
+offset_left = -66.0
+offset_top = -42.0
+offset_right = 67.0
+offset_bottom = -19.0
+text = "Write Your Name"
+
+[node name="Name" type="LineEdit" parent="." unique_id=221583301]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -15.5
+offset_right = 78.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "What is Your Name"
+max_length = 6
+emoji_menu_enabled = false
+
+[node name="accept" type="Button" parent="." unique_id=875857175]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="error" type="Label" parent="." unique_id=1929179623]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -58.0
+offset_right = 39.0
+offset_bottom = -35.0
+
+[connection signal="text_submitted" from="Name" to="." method="_on_name_text_submitted"]
+[connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]

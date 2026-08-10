@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://bym6kta8v2fu5"]
+
+[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/123.jpg" id="1_6haim"]
+[ext_resource type="Script" uid="uid://bas6g03i5v3ji" path="res://TEST/battlescene.gd" id="1_hl2om"]
+[ext_resource type="Texture2D" uid="uid://b1qrq78sw43hj" path="res://IMAGES/pelear apagado.png" id="1_omhxo"]
+[ext_resource type="Resource" uid="uid://dm3frv5hlpa67" path="res://Resources/Godot.tres" id="2_8b1o2"]
+[ext_resource type="FontFile" uid="uid://bshoxr0yag2vi" path="res://fonts/PixelOperator8-Bold.ttf" id="2_82vk2"]
+[ext_resource type="Script" uid="uid://cwrb2l6l4guw5" path="res://TEST/control.gd" id="2_i0tyt"]
+[ext_resource type="Texture2D" uid="uid://gex83nc4dif3" path="res://IMAGES/actuar apagado.png" id="3_1573f"]
+[ext_resource type="Texture2D" uid="uid://bbdkdjrp8syn4" path="res://IMAGES/actuar.png" id="4_7h7fa"]
+[ext_resource type="Texture2D" uid="uid://cq7282fwywjkf" path="res://IMAGES/item apagado.png" id="5_hl2om"]
+[ext_resource type="Texture2D" uid="uid://yrebr58k5i38" path="res://IMAGES/item.png" id="6_bum3g"]
+[ext_resource type="Texture2D" uid="uid://b2lxr4hsf5uem" path="res://IMAGES/Piedad apagado.png" id="7_i0tyt"]
+[ext_resource type="Texture2D" uid="uid://cqovvnatljhdu" path="res://IMAGES/Piedad Arriba.png" id="8_lgf7y"]
+[ext_resource type="AudioStream" uid="uid://vlnv4qeb5fq4" path="res://music/Something Approaching.wav" id="12_bum3g"]
+[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="13_lgf7y"]
+[ext_resource type="AudioStream" uid="uid://cpag7lpnixfld" path="res://music/Undertale Sound Effect - Heal.wav" id="14_lgf7y"]
+[ext_resource type="Texture2D" uid="uid://ck61it0p8s7j0" path="res://IMAGES/metaton.png" id="15_pfhpk"]
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfhpk"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b1o2"]
+bg_color = Color(0.97514206, 0.97514206, 0, 1)
+
+[node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music")]
+script = ExtResource("1_hl2om")
+music = NodePath("AudioStreamPlayer2D")
+monster_stats = ExtResource("2_8b1o2")
+
+[node name="Control" type="Control" parent="." unique_id=386296275 node_paths=PackedStringArray("sound")]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -33.0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("2_i0tyt")
+sound = NodePath("AudioStreamPlayer2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=911955467]
+position = Vector2(574, 404.00003)
+scale = Vector2(1.118253, 0.6692386)
+texture = ExtResource("1_6haim")
+
+[node name="Label" type="Label" parent="Control/Sprite2D" unique_id=35327196]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.047000002
+anchor_bottom = 0.21400002
+offset_left = -480.2133
+offset_top = -116.55038
+offset_right = 429.77866
+offset_bottom = 48.727367
+theme = SubResource("Theme_g4v7s")
+theme_override_fonts/font = ExtResource("2_82vk2")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+uppercase = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control" unique_id=1512277325]
+position = Vector2(-562, 161)
+stream = ExtResource("14_lgf7y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=423299730]
+position = Vector2(517, 142)
+scale = Vector2(0.3854651, 0.44621345)
+texture = ExtResource("15_pfhpk")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1067461036]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.999996
+offset_top = -16.999992
+offset_right = 215.0
+offset_bottom = 193.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_lgf7y")
+
+[node name="GENERAL" type="VBoxContainer" parent="Control" unique_id=17071724]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 447.0
+offset_right = 1695.0
+offset_bottom = 666.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.66, 0.66)
+theme_override_constants/separation = 25
+
+[node name="PlayerHUD" type="HBoxContainer" parent="Control/GENERAL" unique_id=1715595217]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 50
+
+[node name="Name" type="Label" parent="Control/GENERAL/PlayerHUD" unique_id=358768829]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_82vk2")
+theme_override_font_sizes/font_size = 35
+
+[node name="LVL" type="Label" parent="Control/GENERAL/PlayerHUD" unique_id=214244711]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_82vk2")
+theme_override_font_sizes/font_size = 35
+
+[node name="HPTTITLE" type="Label" parent="Control/GENERAL/PlayerHUD" unique_id=1700958156]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_82vk2")
+theme_override_font_sizes/font_size = 35
+
+[node name="HPBAR" type="ProgressBar" parent="Control/GENERAL/PlayerHUD" unique_id=1896662644]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 35
+theme_override_styles/background = SubResource("StyleBoxFlat_pfhpk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b1o2")
+show_percentage = false
+
+[node name="HPTEXT2" type="Label" parent="Control/GENERAL/PlayerHUD" unique_id=703156680]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_82vk2")
+theme_override_font_sizes/font_size = 35
+
+[node name="OPTIONS" type="HBoxContainer" parent="Control/GENERAL" unique_id=236007556]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ATACAR" type="TextureButton" parent="Control/GENERAL/OPTIONS" unique_id=221706203]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("1_omhxo")
+
+[node name="ACTUAR" type="TextureButton" parent="Control/GENERAL/OPTIONS" unique_id=1856330619]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("3_1573f")
+texture_hover = ExtResource("4_7h7fa")
+
+[node name="ITEM" type="TextureButton" parent="Control/GENERAL/OPTIONS" unique_id=384965962]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("5_hl2om")
+texture_hover = ExtResource("6_bum3g")
+
+[node name="MERCY" type="TextureButton" parent="Control/GENERAL/OPTIONS" unique_id=1668624638]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("7_i0tyt")
+texture_hover = ExtResource("8_lgf7y")
+
+[node name="Panel" type="Panel" parent="." unique_id=327989234]
+offset_left = -416.0
+offset_top = 483.0
+offset_right = -416.0
+offset_bottom = 668.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1116199977]
+position = Vector2(300, -67)
+stream = ExtResource("12_bum3g")
