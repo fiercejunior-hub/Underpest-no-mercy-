@@ -5,6 +5,11 @@ extends Control
 @onready var text: Label = $Sprite2D/Label 
 @export var sound: AudioStreamPlayer2D
 
+@onready var target: 
+
+# local variables
+var attacking : bool = false
+
 # 1. RUTAS CORREGIDAS (Todos están dentro de GENERAL/OPTIONS)
 @onready var buttons: Array[Node] = [
 	$GENERAL/OPTIONS/ATACAR,
@@ -54,6 +59,8 @@ func _ready() -> void:
 			#sound.play()
 
 func  _process(delta: float) -> void:
+	if attacking: return
+	# doesn't do anything if already attacking
 	if Input.is_action_just_pressed("ui_left"):
 		opc -= 1
 		if opc < 0:
@@ -79,5 +86,8 @@ func _update_heart_position() -> void:
 
 
 func interact() -> void:
+	if text and opc = 0:	#attack
+		attacking = true
+		corazon.visible = false
 	if text and opc < text_options.size():
 		text.text = text_options[opc]
