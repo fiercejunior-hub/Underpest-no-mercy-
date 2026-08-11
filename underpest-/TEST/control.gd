@@ -30,26 +30,47 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_update_heart_position()
 
+# changed from _unhandled_input to _process because some input was being ignored - Cemis
+# (se lo cambié las cosas de _unhandled_input para _process porque
+# algunas veces el input no era registrado - Cemis)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_left"):
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_left"):
+		#opc -= 1
+		#if opc < 0:
+			#opc = buttons.size() - 1
+		#_update_heart_position()
+		#
+	#elif event.is_action_pressed("ui_right"):
+		#opc += 1
+		#if opc >= buttons.size():
+			#opc = 0
+		#_update_heart_position()
+		#
+	#elif event.is_action_pressed("interactuar"):
+		#interact()
+		## 2. PROTECCIÓN DE SONIDO (Evita que el juego se cierre si no hay audio asignado)
+		#if sound:
+			#sound.play()
+
+func  _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_left"):
 		opc -= 1
 		if opc < 0:
 			opc = buttons.size() - 1
 		_update_heart_position()
 		
-	elif event.is_action_pressed("ui_right"):
+	elif Input.is_action_just_pressed("ui_right"):
 		opc += 1
 		if opc >= buttons.size():
 			opc = 0
 		_update_heart_position()
 		
-	elif event.is_action_pressed("interactuar"):
+	elif Input.is_action_just_pressed("interactuar"):
 		interact()
 		# 2. PROTECCIÓN DE SONIDO (Evita que el juego se cierre si no hay audio asignado)
 		if sound:
 			sound.play()
-
 
 func _update_heart_position() -> void:
 	var btn: Control = buttons[opc] as Control
