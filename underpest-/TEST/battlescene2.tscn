@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://buq7rvk8xraiw"]
+
+[ext_resource type="Script" uid="uid://bas6g03i5v3ji" path="res://TEST/battlescene.gd" id="1_sv4f7"]
+[ext_resource type="Resource" uid="uid://dm3frv5hlpa67" path="res://Resources/Godot.tres" id="2_5qrfv"]
+[ext_resource type="PackedScene" uid="uid://hsnnqvjw5pvn" path="res://TEST/controlScene.tscn" id="3_nihlg"]
+[ext_resource type="AudioStream" uid="uid://vlnv4qeb5fq4" path="res://music/Something Approaching.wav" id="18_5dks8"]
+
+[node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music")]
+script = ExtResource("1_sv4f7")
+music = NodePath("AudioStreamPlayer2D")
+monster_stats = ExtResource("2_5qrfv")
+
+[node name="Control" parent="." unique_id=1918232557 instance=ExtResource("3_nihlg")]
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=327989234]
+offset_left = -416.0
+offset_top = 483.0
+offset_right = -416.0
+offset_bottom = 668.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1116199977]
+position = Vector2(300, -67)
+stream = ExtResource("18_5dks8")

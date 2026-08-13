@@ -183,6 +183,7 @@ texture_normal = ExtResource("1_omhxo")
 
 [node name="ACTUAR" type="TextureButton" parent="Control/GENERAL/OPTIONS" unique_id=1856330619]
 custom_minimum_size = Vector2(0, 30)
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 0
 texture_normal = ExtResource("3_1573f")
