@@ -117,10 +117,6 @@ func _attack():
 		await get_tree().process_frame
 		
 	if attacked:
-		var petah = $petah
-		var mettaton = $Sprite2D2
-		mettaton.visible = false
-		petah.visible = true
 		pass
 		
 	# reset
