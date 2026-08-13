@@ -5,10 +5,11 @@ extends Control
 @onready var text: Label = $Sprite2D/Label 
 @export var sound: AudioStreamPlayer2D
 
-@onready var target: 
+@onready var target: TextureRect = $Sprite2D/target
+@onready var targetAim: TextureRect = $Sprite2D/targetAim
 
-# local variables
-var attacking : bool = false
+# action variables
+var inAction = false
 
 # 1. RUTAS CORREGIDAS (Todos están dentro de GENERAL/OPTIONS)
 @onready var buttons: Array[Node] = [
@@ -30,6 +31,7 @@ var opc: int = 0
 # ⚙️ AJUSTE DE POSICIÓN DEL CORAZÓN (Ajusta la X si lo quieres más a la izquierda del botón)
 @export var offset_corazon: Vector2 = Vector2(10, 15)
 
+#region setup and choosing options
 func _ready() -> void:
 	# Le da un frame a Godot para calcular las posiciones globales de la UI correctamente
 	await get_tree().process_frame
@@ -59,7 +61,7 @@ func _ready() -> void:
 			#sound.play()
 
 func  _process(delta: float) -> void:
-	if attacking: return
+	if inAction: return
 	# doesn't do anything if already attacking
 	if Input.is_action_just_pressed("ui_left"):
 		opc -= 1
@@ -83,11 +85,49 @@ func _update_heart_position() -> void:
 	var btn: Control = buttons[opc] as Control
 	if btn:
 		corazon.global_position = btn.global_position + offset_corazon
+#endregion
 
-
+#region possible actions
 func interact() -> void:
-	if text and opc = 0:	#attack
-		attacking = true
+	if opc == 0:	#player chose attack
+		inAction = true
+		_attack()
 		corazon.visible = false
-	if text and opc < text_options.size():
+		
+	elif text and opc < text_options.size():
 		text.text = text_options[opc]
+
+#attack as a coroutine/ asynchronous function
+func _attack():
+	await get_tree().process_frame
+	#setup, attack starts with aim at -0.49, ends at 0.5
+	var attacked = false
+	
+	targetAim.offset_transform_position_ratio.x = -0.49
+	target.visible = true
+	targetAim.visible = true
+	text.text = ""
+	
+	#loop
+	while targetAim.offset_transform_position_ratio.x < 0.5:
+		if(Input.is_action_just_pressed("interactuar")):
+			attacked = true
+			break
+		targetAim.offset_transform_position_ratio.x += get_process_delta_time()
+		await get_tree().process_frame
+		
+	if attacked:
+		var petah = $petah
+		var mettaton = $Sprite2D2
+		mettaton.visible = false
+		petah.visible = true
+		pass
+		
+	# reset
+	await get_tree().create_timer(1).timeout
+	corazon.visible = true
+	target.visible = false
+	targetAim.visible = false
+	inAction = false
+	text.text = text_options[opc]
+#endregion
