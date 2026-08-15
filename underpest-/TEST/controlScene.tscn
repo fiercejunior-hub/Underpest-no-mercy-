@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://c4axw8yftrvcn" path="res://IMAGES/buttons/item.png" id="7_7hbwk"]
 [ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="8_fx63m"]
 [ext_resource type="Texture2D" uid="uid://bl1idic0qfuqt" path="res://IMAGES/buttons/mercy.png" id="9_7dttt"]
-[ext_resource type="Texture2D" uid="uid://yrebr58k5i38" path="res://IMAGES/item.png" id="13_2xl2y"]
-[ext_resource type="Texture2D" uid="uid://cqovvnatljhdu" path="res://IMAGES/Piedad Arriba.png" id="15_y64k3"]
+[ext_resource type="Texture2D" uid="uid://buu186qc1847g" path="res://IMAGES/buttons/fightHover.png" id="9_7hbwk"]
+[ext_resource type="Texture2D" uid="uid://b3ikl78qpgrin" path="res://IMAGES/buttons/actHover.png" id="11_7dttt"]
+[ext_resource type="Texture2D" uid="uid://cff54pn6m01qm" path="res://IMAGES/buttons/itemHover.png" id="13_sr61n"]
+[ext_resource type="Texture2D" uid="uid://0xgbql3kvmhj" path="res://IMAGES/buttons/mercyHover.png" id="15_uijv3"]
 
 [sub_resource type="Theme" id="Theme_g4v7s"]
 
@@ -33,7 +35,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_7hbwk")
 sound = NodePath("heal")
-offset_corazon = Vector2(6, 12)
+offset_corazon = Vector2(6, 18)
 
 [node name="heal" type="AudioStreamPlayer2D" parent="." unique_id=1386094262]
 position = Vector2(-562, 161)
@@ -47,8 +49,8 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -53.0
 offset_top = 317.99997
-offset_right = -437.0
-offset_bottom = -138.00003
+offset_right = -469.0
+offset_bottom = -170.00003
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("8_fx63m")
 expand_mode = 1
@@ -206,24 +208,34 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+mouse_behavior_recursive = 1
 texture_normal = ExtResource("5_bolrv")
+texture_hover = ExtResource("9_7hbwk")
+texture_focused = ExtResource("9_7hbwk")
 
 [node name="ACTUAR" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=451860521]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+mouse_behavior_recursive = 1
 texture_normal = ExtResource("6_rg3ar")
+texture_hover = ExtResource("11_7dttt")
+texture_focused = ExtResource("11_7dttt")
 
 [node name="ITEM" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=422793213]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+mouse_behavior_recursive = 1
 texture_normal = ExtResource("7_7hbwk")
-texture_hover = ExtResource("13_2xl2y")
+texture_hover = ExtResource("13_sr61n")
+texture_focused = ExtResource("13_sr61n")
 
 [node name="MERCY" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=365173360]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+mouse_behavior_recursive = 1
 texture_normal = ExtResource("9_7dttt")
-texture_hover = ExtResource("15_y64k3")
+texture_hover = ExtResource("15_uijv3")
+texture_focused = ExtResource("15_uijv3")

@@ -85,6 +85,7 @@ func _update_heart_position() -> void:
 	var btn: Control = buttons[opc] as Control
 	if btn:
 		corazon.global_position = btn.global_position + offset_corazon
+		(btn as TextureButton).grab_focus()
 #endregion
 #region possible actions
 func interact() -> void:
