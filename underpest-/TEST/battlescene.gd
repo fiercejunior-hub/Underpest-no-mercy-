@@ -1,9 +1,10 @@
+class_name BattleScene
 extends Node2D
 
 
 @export var music: AudioStreamPlayer2D
 
-@export var monster_stats: Datos_monstruo
+@export var monster_data: Monster_data
 
 @onready var Pname_label: Label = $Control/GENERAL/PlayerHUD/Name
 @onready var Lvl_label: Label = $Control/GENERAL/PlayerHUD/LVL
@@ -16,8 +17,8 @@ func _ready() -> void:
 	music.autoplay = true
 	
 	setup_ui()
-	if monster_stats:
-		dialogue.text = monster_stats.first_message
+	if monster_data:
+		dialogue.text = monster_data.first_message
 	
 func setup_ui() -> void:
 	Pname_label.text = Playerdata.Player_Name

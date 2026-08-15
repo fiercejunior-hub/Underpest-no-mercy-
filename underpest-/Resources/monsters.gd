@@ -1,8 +1,7 @@
-class_name Datos_monstruo
+class_name Monster_data
 extends Resource
 
-
-#data
+#region data
 @export var Mname: String = ""
 @export var Health: int = 10
 @export var MaxHealth: int = 10
@@ -18,3 +17,5 @@ extends Resource
 @export var posible_message: Array[String] = []
 @export var first_message: String = ""
 @export var can_mercy: bool = false
+#endregion
+		

@@ -1,5 +1,5 @@
 extends Control
-
+#region pointer variables
 @onready var corazon: TextureRect = $TextureRect
 # Si el Label está dentro de Sprite2D (o Sprite2D1), asegúrate de que la ruta coincida con el árbol
 @onready var text: Label = $Sprite2D/Label 
@@ -7,8 +7,8 @@ extends Control
 
 @onready var target: TextureRect = $Sprite2D/target
 @onready var targetAim: TextureRect = $Sprite2D/targetAim
-
-# action variables
+#endregion
+#region action variables
 var inAction = false
 
 # 1. RUTAS CORREGIDAS (Todos están dentro de GENERAL/OPTIONS)
@@ -30,7 +30,7 @@ var opc: int = 0
 
 # ⚙️ AJUSTE DE POSICIÓN DEL CORAZÓN (Ajusta la X si lo quieres más a la izquierda del botón)
 @export var offset_corazon: Vector2 = Vector2(10, 15)
-
+#endregion
 #region setup and choosing options
 func _ready() -> void:
 	# Le da un frame a Godot para calcular las posiciones globales de la UI correctamente
@@ -86,7 +86,6 @@ func _update_heart_position() -> void:
 	if btn:
 		corazon.global_position = btn.global_position + offset_corazon
 #endregion
-
 #region possible actions
 func interact() -> void:
 	if opc == 0:	#player chose attack
@@ -117,7 +116,7 @@ func _attack():
 		await get_tree().process_frame
 		
 	if attacked:
-		pass
+		_damageEnemy(10)
 		
 	# reset
 	await get_tree().create_timer(1).timeout
@@ -126,4 +125,35 @@ func _attack():
 	targetAim.visible = false
 	inAction = false
 	text.text = text_options[opc]
+#endregion
+
+#region enemy related (this shouldn't be here, i'll move it later)
+@onready var monsterData = ($".." as BattleScene).monster_data
+@export var enemy : Node2D
+@onready var slash : AnimatedSprite2D = $slash
+@onready var snd_slash : AudioStreamPlayer = $slash/SndSlash
+@onready var snd_damage : AudioStreamPlayer = $slash/SndDamageC
+
+func _damageEnemy(damage : int):
+	print(monsterData.Health)
+	monsterData.Health -= damage
+	var x = enemy.position.x
+	var magnitude = 12
+	var interval = 0.1
+	
+	#play slash animation
+	slash.visible = true
+	slash.play("default")
+	snd_slash.play()
+	await slash.animation_finished
+	slash.visible = false
+	#play damage animation
+	snd_damage.play()
+	for i in range(0,4):
+		enemy.position.x += magnitude
+		await get_tree().create_timer(interval).timeout
+		enemy.position.x = x
+		enemy.position.x -= magnitude
+		await get_tree().create_timer(interval).timeout
+		enemy.position.x = x
 #endregion

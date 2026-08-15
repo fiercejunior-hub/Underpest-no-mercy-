@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Datos_monstruo" format=3 uid="uid://dm3frv5hlpa67"]
+[gd_resource type="Resource" script_class="Monster_data" format=3 uid="uid://dm3frv5hlpa67"]
 
-[ext_resource type="Script" uid="uid://b4xaqdqwb1biv" path="res://Resources/monsters.gd" id="1_kfpvr"]
+[ext_resource type="Script" uid="uid://b4xaqdqwb1biv" path="res://Resources/monsters.gd" id="1_nkgvw"]
 
 [resource]
-script = ExtResource("1_kfpvr")
+script = ExtResource("1_nkgvw")
 Mname = "Godot"
 Health = 20
 MaxHealth = 20
