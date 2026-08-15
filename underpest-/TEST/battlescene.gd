@@ -2,7 +2,7 @@ class_name BattleScene
 extends Node2D
 
 
-@export var music: AudioStreamPlayer2D
+@export var music: AudioStreamPlayer
 
 @export var monster_data: Monster_data
 
@@ -11,7 +11,7 @@ extends Node2D
 @onready var HPTITTLE: Label = $Control/GENERAL/PlayerHUD/HPTTITLE
 @onready var HPBAR: ProgressBar =  $Control/GENERAL/PlayerHUD/HPBAR
 @onready var HPTEXT: Label = $Control/GENERAL/PlayerHUD/HPTEXT2
-@onready var dialogue: Label = $Control/Sprite2D/Label
+@onready var dialogue: Label = $Control/panel/label
 func _ready() -> void:
 	music.play()
 	music.autoplay = true

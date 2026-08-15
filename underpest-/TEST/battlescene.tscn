@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bym6kta8v2fu5"]
 
-[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/123.jpg" id="1_6haim"]
+[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/panel.jpg" id="1_6haim"]
 [ext_resource type="Script" uid="uid://bas6g03i5v3ji" path="res://TEST/battlescene.gd" id="1_hl2om"]
 [ext_resource type="Texture2D" uid="uid://b1qrq78sw43hj" path="res://IMAGES/pelear apagado.png" id="1_omhxo"]
 [ext_resource type="Resource" uid="uid://dm3frv5hlpa67" path="res://Resources/baseMonsterStats.tres" id="2_8b1o2"]
@@ -146,7 +146,7 @@ animations = [{
 
 [node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music")]
 script = ExtResource("1_hl2om")
-music = NodePath("AudioStreamPlayer2D")
+music = NodePath("music")
 monster_data = ExtResource("2_8b1o2")
 
 [node name="Control" type="Control" parent="." unique_id=386296275 node_paths=PackedStringArray("sound", "enemy")]
@@ -196,7 +196,6 @@ texture = ExtResource("6_p2nno")
 expand_mode = 2
 
 [node name="targetAim" type="TextureRect" parent="Control/Sprite2D" unique_id=1973790553]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -232,10 +231,10 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -14.999996
 offset_top = -16.999992
-offset_right = 215.0
-offset_bottom = 193.0
-scale = Vector2(0.2, 0.2)
+offset_right = 29.000004
+offset_bottom = -25.999992
 texture = ExtResource("13_lgf7y")
+expand_mode = 1
 
 [node name="GENERAL" type="VBoxContainer" parent="Control" unique_id=17071724]
 custom_minimum_size = Vector2(0, 30)
@@ -327,7 +326,10 @@ texture_hover = ExtResource("8_lgf7y")
 [node name="slash" type="AnimatedSprite2D" parent="Control" unique_id=550482452]
 visible = false
 position = Vector2(606, 191)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_iex6s")
+frame = 8
+frame_progress = 1.0
 
 [node name="SndDamageC" type="AudioStreamPlayer" parent="Control/slash" unique_id=468406204]
 stream = ExtResource("19_l4yv5")
@@ -335,16 +337,10 @@ stream = ExtResource("19_l4yv5")
 [node name="SndSlash" type="AudioStreamPlayer" parent="Control/slash" unique_id=238389632]
 stream = ExtResource("19_a152h")
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Control" unique_id=2015612844]
+[node name="heal" type="AudioStreamPlayer2D" parent="Control" unique_id=2015612844]
 position = Vector2(-562, 161)
 stream = ExtResource("14_lgf7y")
 
-[node name="Panel" type="Panel" parent="." unique_id=327989234]
-offset_left = -416.0
-offset_top = 483.0
-offset_right = -416.0
-offset_bottom = 668.0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1116199977]
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1116199977]
 position = Vector2(300, -67)
 stream = ExtResource("12_bum3g")

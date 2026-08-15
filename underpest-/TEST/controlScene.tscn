@@ -1,19 +1,17 @@
 [gd_scene format=3 uid="uid://hsnnqvjw5pvn"]
 
 [ext_resource type="Script" uid="uid://cwrb2l6l4guw5" path="res://TEST/control.gd" id="1_7hbwk"]
-[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/123.jpg" id="2_7dttt"]
+[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/panel.jpg" id="2_7dttt"]
 [ext_resource type="FontFile" uid="uid://bshoxr0yag2vi" path="res://fonts/PixelOperator8-Bold.ttf" id="3_sr61n"]
 [ext_resource type="Texture2D" uid="uid://bhlqlhqtuibq0" path="res://IMAGES/target.png" id="4_uijv3"]
+[ext_resource type="Texture2D" uid="uid://ca48gwcyfunhx" path="res://IMAGES/buttons/fight.png" id="5_bolrv"]
 [ext_resource type="Texture2D" uid="uid://7tftylc15haj" path="res://IMAGES/target bar.png" id="5_qjfkw"]
 [ext_resource type="AudioStream" uid="uid://cpag7lpnixfld" path="res://music/sfx/Undertale Sound Effect - Heal.wav" id="6_3a7hv"]
-[ext_resource type="Texture2D" uid="uid://ck61it0p8s7j0" path="res://IMAGES/metaton.png" id="7_i5ml7"]
+[ext_resource type="Texture2D" uid="uid://b1xeb1lag35pl" path="res://IMAGES/buttons/act.png" id="6_rg3ar"]
+[ext_resource type="Texture2D" uid="uid://c4axw8yftrvcn" path="res://IMAGES/buttons/item.png" id="7_7hbwk"]
 [ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="8_fx63m"]
-[ext_resource type="Texture2D" uid="uid://b1qrq78sw43hj" path="res://IMAGES/pelear apagado.png" id="9_6iiv1"]
-[ext_resource type="Texture2D" uid="uid://gex83nc4dif3" path="res://IMAGES/actuar apagado.png" id="10_fyvci"]
-[ext_resource type="Texture2D" uid="uid://bbdkdjrp8syn4" path="res://IMAGES/actuar.png" id="11_ivo1x"]
-[ext_resource type="Texture2D" uid="uid://cq7282fwywjkf" path="res://IMAGES/item apagado.png" id="12_pt8pl"]
+[ext_resource type="Texture2D" uid="uid://bl1idic0qfuqt" path="res://IMAGES/buttons/mercy.png" id="9_7dttt"]
 [ext_resource type="Texture2D" uid="uid://yrebr58k5i38" path="res://IMAGES/item.png" id="13_2xl2y"]
-[ext_resource type="Texture2D" uid="uid://b2lxr4hsf5uem" path="res://IMAGES/Piedad apagado.png" id="14_n4831"]
 [ext_resource type="Texture2D" uid="uid://cqovvnatljhdu" path="res://IMAGES/Piedad Arriba.png" id="15_y64k3"]
 
 [sub_resource type="Theme" id="Theme_g4v7s"]
@@ -24,7 +22,7 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b1o2"]
 bg_color = Color(0.97514206, 0.97514206, 0, 1)
 
-[node name="Control" type="Control" unique_id=1918232557 node_paths=PackedStringArray("sound")]
+[node name="panel" type="Control" unique_id=1918232557 node_paths=PackedStringArray("sound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,52 +32,80 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_7hbwk")
-sound = NodePath("AudioStreamPlayer2D")
+sound = NodePath("heal")
 offset_corazon = Vector2(6, 12)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251879538]
-position = Vector2(315.00003, 283)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_7dttt")
+[node name="heal" type="AudioStreamPlayer2D" parent="." unique_id=1386094262]
+position = Vector2(-562, 161)
+stream = ExtResource("6_3a7hv")
 
-[node name="Label" type="Label" parent="Sprite2D" unique_id=666662154]
-texture_filter = 1
+[node name="heart" type="TextureRect" parent="." unique_id=732112077]
+z_index = 1
+layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.047000002
-anchor_bottom = 0.21400002
-offset_left = -480.2133
-offset_top = -116.55038
-offset_right = 429.77866
-offset_bottom = 48.727367
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = 317.99997
+offset_right = -437.0
+offset_bottom = -138.00003
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_fx63m")
+expand_mode = 1
+
+[node name="panel" type="TextureRect" parent="." unique_id=925768406]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -317.0
+offset_right = 508.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_7dttt")
+stretch_mode = 2
+
+[node name="label" type="Label" parent="panel" unique_id=666662154]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 23.5
+offset_right = -29.999878
+offset_bottom = -31.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_g4v7s")
 theme_override_fonts/font = ExtResource("3_sr61n")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
 uppercase = true
 
-[node name="target" type="TextureRect" parent="Sprite2D" unique_id=1817491624]
+[node name="target" type="TextureRect" parent="panel" unique_id=1817491624]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -508.0
-offset_top = -144.5
-offset_right = -508.0
-offset_bottom = -144.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_uijv3")
 expand_mode = 2
 
-[node name="targetAim" type="TextureRect" parent="Sprite2D" unique_id=2052375449]
+[node name="targetAim" type="TextureRect" parent="panel" unique_id=2052375449]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -508.0
-offset_top = -144.5
-offset_right = -508.0
-offset_bottom = -144.5
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
@@ -88,54 +114,33 @@ offset_transform_scale = Vector2(0.7, 1)
 texture = ExtResource("5_qjfkw")
 stretch_mode = 3
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1386094262]
-position = Vector2(-562, 161)
-stream = ExtResource("6_3a7hv")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=411203015]
-position = Vector2(337, 122)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_i5ml7")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=732112077]
-z_index = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -162.99998
-offset_top = -80.0
-offset_right = -489.0
-offset_bottom = -478.0
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("8_fx63m")
-stretch_mode = 2
-
 [node name="GENERAL" type="Control" parent="." unique_id=1434318816]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -146.0
-offset_bottom = 36.000244
+offset_top = -161.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 1)
 offset_transform_position = Vector2(0, 18)
 offset_transform_pivot_ratio = Vector2(0.5, 1)
 
 [node name="PlayerHUD" type="HBoxContainer" parent="GENERAL" unique_id=1481838925]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 71.45459
-offset_top = 23.999998
-offset_right = -71.45459
-offset_bottom = 60.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -417.0
+offset_right = 417.0
+offset_bottom = 36.0
 grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset_ratio = Vector2(0.5, 1)
+pivot_offset_ratio = Vector2(0.5, 0)
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 50
 
@@ -182,18 +187,18 @@ text = "10/10"
 texture_filter = 1
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -316.5
-offset_top = -169.0
-offset_right = 316.5
+offset_left = -488.0
+offset_top = -84.0
+offset_right = 488.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.25, 0.25)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_constants/separation = 114
+theme_override_constants/separation = 32
 alignment = 1
 
 [node name="ATACAR" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=1407304556]
@@ -201,25 +206,24 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
-texture_normal = ExtResource("9_6iiv1")
+texture_normal = ExtResource("5_bolrv")
 
 [node name="ACTUAR" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=451860521]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
-texture_normal = ExtResource("10_fyvci")
-texture_hover = ExtResource("11_ivo1x")
+texture_normal = ExtResource("6_rg3ar")
 
 [node name="ITEM" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=422793213]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
-texture_normal = ExtResource("12_pt8pl")
+texture_normal = ExtResource("7_7hbwk")
 texture_hover = ExtResource("13_2xl2y")
 
 [node name="MERCY" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=365173360]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
-texture_normal = ExtResource("14_n4831")
+texture_normal = ExtResource("9_7dttt")
 texture_hover = ExtResource("15_y64k3")

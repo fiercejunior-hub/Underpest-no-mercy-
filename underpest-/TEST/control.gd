@@ -1,12 +1,12 @@
 extends Control
 #region pointer variables
-@onready var corazon: TextureRect = $TextureRect
+@onready var corazon: TextureRect = $heart
 # Si el Label está dentro de Sprite2D (o Sprite2D1), asegúrate de que la ruta coincida con el árbol
-@onready var text: Label = $Sprite2D/Label 
+@onready var text: Label = $panel/label 
 @export var sound: AudioStreamPlayer2D
 
-@onready var target: TextureRect = $Sprite2D/target
-@onready var targetAim: TextureRect = $Sprite2D/targetAim
+@onready var target: TextureRect = $panel/target
+@onready var targetAim: TextureRect = $panel/targetAim
 #endregion
 #region action variables
 var inAction = false
@@ -101,6 +101,7 @@ func _attack():
 	await get_tree().process_frame
 	#setup, attack starts with aim at -0.49, ends at 0.5
 	var attacked = false
+	var damage : int = 10
 	
 	targetAim.offset_transform_position_ratio.x = -0.49
 	target.visible = true
@@ -116,7 +117,8 @@ func _attack():
 		await get_tree().process_frame
 		
 	if attacked:
-		_damageEnemy(10)
+		var damageMultiplier = 1 - abs(targetAim.offset_transform_position_ratio.x * 2.0)
+		_damageEnemy(damage * damageMultiplier)
 		
 	# reset
 	await get_tree().create_timer(1).timeout
@@ -128,15 +130,17 @@ func _attack():
 #endregion
 
 #region enemy related (this shouldn't be here, i'll move it later)
+@export var damageText : Label
 @onready var monsterData = ($".." as BattleScene).monster_data
 @export var enemy : Node2D
-@onready var slash : AnimatedSprite2D = $slash
-@onready var snd_slash : AudioStreamPlayer = $slash/SndSlash
-@onready var snd_damage : AudioStreamPlayer = $slash/SndDamageC
+@onready var slash : AnimatedSprite2D = $"../slash"
+@onready var snd_slash : AudioStreamPlayer = $"../slash/SndSlash"
+@onready var snd_damage : AudioStreamPlayer = $"../slash/SndDamageC"
 
 func _damageEnemy(damage : int):
-	print(monsterData.Health)
 	monsterData.Health -= damage
+	damageText.text = var_to_str(damage)
+	
 	var x = enemy.position.x
 	var magnitude = 12
 	var interval = 0.1
@@ -147,8 +151,10 @@ func _damageEnemy(damage : int):
 	snd_slash.play()
 	await slash.animation_finished
 	slash.visible = false
+	
 	#play damage animation
 	snd_damage.play()
+	damageText.visible = true
 	for i in range(0,4):
 		enemy.position.x += magnitude
 		await get_tree().create_timer(interval).timeout
@@ -156,4 +162,5 @@ func _damageEnemy(damage : int):
 		enemy.position.x -= magnitude
 		await get_tree().create_timer(interval).timeout
 		enemy.position.x = x
+	damageText.visible = false
 #endregion
