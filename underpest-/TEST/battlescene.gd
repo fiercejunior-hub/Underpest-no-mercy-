@@ -3,8 +3,7 @@ extends Node2D
 
 
 @export var music: AudioStreamPlayer
-
-@export var monster_data: Monster_data
+@export var monster : Monster
 
 @onready var Pname_label: Label = $Control/GENERAL/PlayerHUD/Name
 @onready var Lvl_label: Label = $Control/GENERAL/PlayerHUD/LVL
@@ -17,8 +16,8 @@ func _ready() -> void:
 	music.autoplay = true
 	
 	setup_ui()
-	if monster_data:
-		dialogue.text = monster_data.first_message
+	if monster.monsterData:
+		dialogue.text = monster.monsterData.first_message
 	
 func setup_ui() -> void:
 	Pname_label.text = Playerdata.Player_Name

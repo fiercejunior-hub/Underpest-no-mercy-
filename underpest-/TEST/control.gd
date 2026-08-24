@@ -7,6 +7,8 @@ extends Control
 
 @onready var target: TextureRect = $panel/target
 @onready var targetAim: TextureRect = $panel/targetAim
+
+@export var monster : Monster
 #endregion
 #region action variables
 var inAction = false
@@ -119,7 +121,7 @@ func _attack():
 		
 	if attacked:
 		var damageMultiplier = 1 - abs(targetAim.offset_transform_position_ratio.x * 2.0)
-		_damageEnemy(damage * damageMultiplier)
+		monster._takeDamage(damage * damageMultiplier)
 		
 	# reset
 	await get_tree().create_timer(1).timeout
@@ -128,40 +130,4 @@ func _attack():
 	targetAim.visible = false
 	inAction = false
 	text.text = text_options[opc]
-#endregion
-
-#region enemy related (this shouldn't be here, i'll move it later)
-@export var damageText : Label
-@onready var monsterData = ($".." as BattleScene).monster_data
-@export var enemy : Node2D
-@onready var slash : AnimatedSprite2D = $"../slash"
-@onready var snd_slash : AudioStreamPlayer = $"../slash/SndSlash"
-@onready var snd_damage : AudioStreamPlayer = $"../slash/SndDamageC"
-
-func _damageEnemy(damage : int):
-	monsterData.Health -= damage
-	damageText.text = var_to_str(damage)
-	
-	var x = enemy.position.x
-	var magnitude = 12
-	var interval = 0.1
-	
-	#play slash animation
-	slash.visible = true
-	slash.play("default")
-	snd_slash.play()
-	await slash.animation_finished
-	slash.visible = false
-	
-	#play damage animation
-	snd_damage.play()
-	damageText.visible = true
-	for i in range(0,4):
-		enemy.position.x += magnitude
-		await get_tree().create_timer(interval).timeout
-		enemy.position.x = x
-		enemy.position.x -= magnitude
-		await get_tree().create_timer(interval).timeout
-		enemy.position.x = x
-	damageText.visible = false
 #endregion

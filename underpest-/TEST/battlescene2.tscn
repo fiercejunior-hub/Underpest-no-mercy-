@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bc3hlumke0ae4" path="res://IMAGES/enemies/whimsun.png" id="3_xjl62"]
 [ext_resource type="Texture2D" uid="uid://ckck0go1wlpax" path="res://IMAGES/slash.png" id="5_hs2rp"]
 [ext_resource type="FontFile" uid="uid://bu8rakjn5va8o" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="5_jmscg"]
+[ext_resource type="Script" uid="uid://bt6mk60ytrkk6" path="res://Resources/monster.gd" id="5_oadd5"]
 [ext_resource type="AudioStream" uid="uid://r2vnbo4i1m6a" path="res://music/sfx/snd_damage_c.wav" id="6_u4v7q"]
 [ext_resource type="AudioStream" uid="uid://xslidexc8ufp" path="res://music/sfx/snd_slash.wav" id="7_jmscg"]
 [ext_resource type="AudioStream" uid="uid://vlnv4qeb5fq4" path="res://music/Something Approaching.wav" id="18_5dks8"]
@@ -52,6 +53,12 @@ animations = [{
 "name": &"default",
 "speed": 6.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmtka"]
+bg_color = Color(0.24877122, 0.204122, 0.23637605, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6alri"]
+bg_color = Color(0.3244018, 0.5917544, 0.41858506, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4yv5"]
 atlas = ExtResource("5_hs2rp")
@@ -124,12 +131,12 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music")]
+[node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music", "monster")]
 script = ExtResource("1_sv4f7")
 music = NodePath("music")
-monster_data = ExtResource("2_5qrfv")
+monster = NodePath("whimsun")
 
-[node name="Control" parent="." unique_id=1918232557 node_paths=PackedStringArray("damageText", "enemy") instance=ExtResource("3_nihlg")]
+[node name="Control" parent="." unique_id=1918232557 node_paths=PackedStringArray("monster") instance=ExtResource("3_nihlg")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -139,18 +146,28 @@ grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1.25, 1.25)
 pivot_offset_ratio = Vector2(0.5, 1)
-damageText = NodePath("../Dmg")
-enemy = NodePath("../whimsun")
+monster = NodePath("../whimsun")
 
-[node name="Dmg" type="Label" parent="." unique_id=995407582]
+[node name="whimsun" type="AnimatedSprite2D" parent="." unique_id=1184614827]
+position = Vector2(577.24994, 170)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_bfelc")
+autoplay = "default"
+script = ExtResource("5_oadd5")
+monsterData = ExtResource("2_5qrfv")
+
+[node name="remoteChildren" type="Node2D" parent="whimsun" unique_id=117862826]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="dmgOutput" type="Label" parent="whimsun/remoteChildren" unique_id=995407582]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 545.24994
-offset_top = 48.905006
-offset_right = 609.24994
-offset_bottom = 80.90501
+offset_left = -32.0
+offset_top = -121.094986
+offset_right = 32.0
+offset_bottom = -89.094986
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.9254902, 0.1882353, 0.3372549, 1)
@@ -160,11 +177,23 @@ theme_override_font_sizes/font_size = 32
 text = "10"
 horizontal_alignment = 1
 
-[node name="whimsun" type="AnimatedSprite2D" parent="." unique_id=1184614827]
-position = Vector2(577.24994, 170)
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_bfelc")
-autoplay = "default"
+[node name="healthBar" type="ProgressBar" parent="whimsun/remoteChildren" unique_id=1948081643]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.75006
+offset_top = 108.0
+offset_right = 61.750137
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_wmtka")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6alri")
+value = 90.64
+show_percentage = false
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=720560681]
 stream = ExtResource("18_5dks8")
