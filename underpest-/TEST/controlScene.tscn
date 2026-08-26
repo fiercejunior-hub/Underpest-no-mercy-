@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://hsnnqvjw5pvn"]
+
+[ext_resource type="Script" uid="uid://cwrb2l6l4guw5" path="res://TEST/control.gd" id="1_7hbwk"]
+[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/panel.jpg" id="2_7dttt"]
+[ext_resource type="FontFile" uid="uid://bshoxr0yag2vi" path="res://fonts/PixelOperator8-Bold.ttf" id="3_sr61n"]
+[ext_resource type="Texture2D" uid="uid://bhlqlhqtuibq0" path="res://IMAGES/target.png" id="4_uijv3"]
+[ext_resource type="Texture2D" uid="uid://ca48gwcyfunhx" path="res://IMAGES/buttons/fight.png" id="5_bolrv"]
+[ext_resource type="Texture2D" uid="uid://7tftylc15haj" path="res://IMAGES/target bar.png" id="5_qjfkw"]
+[ext_resource type="AudioStream" uid="uid://cpag7lpnixfld" path="res://music/sfx/Undertale Sound Effect - Heal.wav" id="6_3a7hv"]
+[ext_resource type="Texture2D" uid="uid://b1xeb1lag35pl" path="res://IMAGES/buttons/act.png" id="6_rg3ar"]
+[ext_resource type="Texture2D" uid="uid://c4axw8yftrvcn" path="res://IMAGES/buttons/item.png" id="7_7hbwk"]
+[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="8_fx63m"]
+[ext_resource type="Texture2D" uid="uid://bl1idic0qfuqt" path="res://IMAGES/buttons/mercy.png" id="9_7dttt"]
+[ext_resource type="Texture2D" uid="uid://buu186qc1847g" path="res://IMAGES/buttons/fightHover.png" id="9_7hbwk"]
+[ext_resource type="Texture2D" uid="uid://b3ikl78qpgrin" path="res://IMAGES/buttons/actHover.png" id="11_7dttt"]
+[ext_resource type="Texture2D" uid="uid://cff54pn6m01qm" path="res://IMAGES/buttons/itemHover.png" id="13_sr61n"]
+[ext_resource type="Texture2D" uid="uid://0xgbql3kvmhj" path="res://IMAGES/buttons/mercyHover.png" id="15_uijv3"]
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfhpk"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b1o2"]
+bg_color = Color(0.97514206, 0.97514206, 0, 1)
+
+[node name="panel" type="Control" unique_id=1918232557 node_paths=PackedStringArray("sound")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_7hbwk")
+sound = NodePath("heal")
+offset_corazon = Vector2(6, 18)
+
+[node name="heal" type="AudioStreamPlayer2D" parent="." unique_id=1386094262]
+position = Vector2(-562, 161)
+stream = ExtResource("6_3a7hv")
+
+[node name="heart" type="TextureRect" parent="." unique_id=732112077]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = 317.99997
+offset_right = -469.0
+offset_bottom = -170.00003
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_fx63m")
+expand_mode = 1
+
+[node name="panel" type="TextureRect" parent="." unique_id=925768406]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -317.0
+offset_right = 508.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_7dttt")
+stretch_mode = 2
+
+[node name="label" type="Label" parent="panel" unique_id=666662154]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 23.5
+offset_right = -29.999878
+offset_bottom = -31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_g4v7s")
+theme_override_fonts/font = ExtResource("3_sr61n")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+uppercase = true
+
+[node name="target" type="TextureRect" parent="panel" unique_id=1817491624]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_uijv3")
+expand_mode = 2
+
+[node name="targetAim" type="TextureRect" parent="panel" unique_id=2052375449]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, 0)
+offset_transform_scale = Vector2(0.7, 1)
+texture = ExtResource("5_qjfkw")
+stretch_mode = 3
+
+[node name="GENERAL" type="Control" parent="." unique_id=1434318816]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -161.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 1)
+offset_transform_position = Vector2(0, 18)
+offset_transform_pivot_ratio = Vector2(0.5, 1)
+
+[node name="PlayerHUD" type="HBoxContainer" parent="GENERAL" unique_id=1481838925]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -417.0
+offset_right = 417.0
+offset_bottom = 36.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 50
+
+[node name="Name" type="Label" parent="GENERAL/PlayerHUD" unique_id=1415363996]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sr61n")
+theme_override_font_sizes/font_size = 35
+text = "Chara"
+
+[node name="LVL" type="Label" parent="GENERAL/PlayerHUD" unique_id=1080874338]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sr61n")
+theme_override_font_sizes/font_size = 35
+text = "Lv 2"
+
+[node name="HPTTITLE" type="Label" parent="GENERAL/PlayerHUD" unique_id=1313235402]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(36, 0)
+offset_transform_scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = ExtResource("3_sr61n")
+theme_override_font_sizes/font_size = 35
+text = "HP"
+
+[node name="HPBAR" type="ProgressBar" parent="GENERAL/PlayerHUD" unique_id=2037795017]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 35
+theme_override_styles/background = SubResource("StyleBoxFlat_pfhpk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b1o2")
+show_percentage = false
+
+[node name="HPTEXT2" type="Label" parent="GENERAL/PlayerHUD" unique_id=713076472]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-36, 0)
+theme_override_fonts/font = ExtResource("3_sr61n")
+theme_override_font_sizes/font_size = 35
+text = "10/10"
+
+[node name="OPTIONS" type="HBoxContainer" parent="GENERAL" unique_id=1683812426]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -488.0
+offset_top = -84.0
+offset_right = 488.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ATACAR" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=1407304556]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_behavior_recursive = 1
+texture_normal = ExtResource("5_bolrv")
+texture_hover = ExtResource("9_7hbwk")
+texture_focused = ExtResource("9_7hbwk")
+
+[node name="ACTUAR" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=451860521]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_behavior_recursive = 1
+texture_normal = ExtResource("6_rg3ar")
+texture_hover = ExtResource("11_7dttt")
+texture_focused = ExtResource("11_7dttt")
+
+[node name="ITEM" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=422793213]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_behavior_recursive = 1
+texture_normal = ExtResource("7_7hbwk")
+texture_hover = ExtResource("13_sr61n")
+texture_focused = ExtResource("13_sr61n")
+
+[node name="MERCY" type="TextureButton" parent="GENERAL/OPTIONS" unique_id=365173360]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_behavior_recursive = 1
+texture_normal = ExtResource("9_7dttt")
+texture_hover = ExtResource("15_uijv3")
+texture_focused = ExtResource("15_uijv3")
