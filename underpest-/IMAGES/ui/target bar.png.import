@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2lxr4hsf5uem"
-path="res://.godot/imported/Piedad apagado.png-12bdd820b96447893a3cb6ea5ad9a513.ctex"
+uid="uid://7tftylc15haj"
+path="res://.godot/imported/target bar.png-1eaa6f8a7fed84df530e1457bb842387.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/Piedad apagado.png"
-dest_files=["res://.godot/imported/Piedad apagado.png-12bdd820b96447893a3cb6ea5ad9a513.ctex"]
+source_file="res://IMAGES/ui/target bar.png"
+dest_files=["res://.godot/imported/target bar.png-1eaa6f8a7fed84df530e1457bb842387.ctex"]
 
 [params]
 

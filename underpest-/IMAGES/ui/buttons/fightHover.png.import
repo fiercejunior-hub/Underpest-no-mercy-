@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da02id5n5ese5"
-path="res://.godot/imported/pelear.png-b6b61a92e451c88e98ce69f5e4142fce.ctex"
+uid="uid://buu186qc1847g"
+path="res://.godot/imported/fightHover.png-d0a9a25eb9082bd81d490c3d7a04093a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/pelear.png"
-dest_files=["res://.godot/imported/pelear.png-b6b61a92e451c88e98ce69f5e4142fce.ctex"]
+source_file="res://IMAGES/ui/buttons/fightHover.png"
+dest_files=["res://.godot/imported/fightHover.png-d0a9a25eb9082bd81d490c3d7a04093a.ctex"]
 
 [params]
 

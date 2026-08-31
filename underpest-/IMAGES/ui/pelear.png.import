@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhlqlhqtuibq0"
-path="res://.godot/imported/target.png-1054f8493987dc9e060e64ec715007d4.ctex"
+uid="uid://da02id5n5ese5"
+path="res://.godot/imported/pelear.png-6d7dfbef243f1ec51f66ba802638ef5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/target.png"
-dest_files=["res://.godot/imported/target.png-1054f8493987dc9e060e64ec715007d4.ctex"]
+source_file="res://IMAGES/ui/pelear.png"
+dest_files=["res://.godot/imported/pelear.png-6d7dfbef243f1ec51f66ba802638ef5c.ctex"]
 
 [params]
 

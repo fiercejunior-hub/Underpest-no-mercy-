@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1qrq78sw43hj"
-path="res://.godot/imported/pelear apagado.png-baf9ed2c5b111525d803d86fe21de3b8.ctex"
+uid="uid://c4axw8yftrvcn"
+path="res://.godot/imported/item.png-0d332a7ca5dd95f981bf1e3ab82f1779.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/pelear apagado.png"
-dest_files=["res://.godot/imported/pelear apagado.png-baf9ed2c5b111525d803d86fe21de3b8.ctex"]
+source_file="res://IMAGES/ui/buttons/item.png"
+dest_files=["res://.godot/imported/item.png-0d332a7ca5dd95f981bf1e3ab82f1779.ctex"]
 
 [params]
 

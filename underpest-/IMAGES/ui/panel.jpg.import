@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl1idic0qfuqt"
-path="res://.godot/imported/mercy.png-7743b8bc12e801c174e80f319971da49.ctex"
+uid="uid://btk6fis3q5fuu"
+path="res://.godot/imported/panel.jpg-5dd7b392975bcf90ea85268c755199a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/buttons/mercy.png"
-dest_files=["res://.godot/imported/mercy.png-7743b8bc12e801c174e80f319971da49.ctex"]
+source_file="res://IMAGES/ui/panel.jpg"
+dest_files=["res://.godot/imported/panel.jpg-5dd7b392975bcf90ea85268c755199a5.ctex"]
 
 [params]
 

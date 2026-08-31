@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ikl78qpgrin"
-path="res://.godot/imported/actHover.png-9a9068137f9ca70a24cfc61b529588d6.ctex"
+uid="uid://bmdk4521d0dy0"
+path="res://.godot/imported/3-3.jpg-66423a09008f248c5e106e84e7f9a164.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/buttons/actHover.png"
-dest_files=["res://.godot/imported/actHover.png-9a9068137f9ca70a24cfc61b529588d6.ctex"]
+source_file="res://IMAGES/ui/3-3.jpg"
+dest_files=["res://.godot/imported/3-3.jpg-66423a09008f248c5e106e84e7f9a164.ctex"]
 
 [params]
 

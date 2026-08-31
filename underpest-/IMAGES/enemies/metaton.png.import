@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca48gwcyfunhx"
-path="res://.godot/imported/fight.png-caee8b438f66148640a418434dff4bd1.ctex"
+uid="uid://ck61it0p8s7j0"
+path="res://.godot/imported/metaton.png-f685317ade95577217d4a9280f402797.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/buttons/fight.png"
-dest_files=["res://.godot/imported/fight.png-caee8b438f66148640a418434dff4bd1.ctex"]
+source_file="res://IMAGES/enemies/metaton.png"
+dest_files=["res://.godot/imported/metaton.png-f685317ade95577217d4a9280f402797.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1xeb1lag35pl"
-path="res://.godot/imported/act.png-33190866a6c989a47908f9e605ba217f.ctex"
+uid="uid://cq7282fwywjkf"
+path="res://.godot/imported/item apagado.png-70d804e8876786033c3cd3f0c7de5312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/buttons/act.png"
-dest_files=["res://.godot/imported/act.png-33190866a6c989a47908f9e605ba217f.ctex"]
+source_file="res://IMAGES/ui/item apagado.png"
+dest_files=["res://.godot/imported/item apagado.png-70d804e8876786033c3cd3f0c7de5312.ctex"]
 
 [params]
 

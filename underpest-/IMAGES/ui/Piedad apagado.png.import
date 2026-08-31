@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqovvnatljhdu"
-path="res://.godot/imported/Piedad Arriba.png-a6533a9156b1cd30672a96dc1ab5b22d.ctex"
+uid="uid://b2lxr4hsf5uem"
+path="res://.godot/imported/Piedad apagado.png-94522ea3d4604a753fc32d6595beb776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/Piedad Arriba.png"
-dest_files=["res://.godot/imported/Piedad Arriba.png-a6533a9156b1cd30672a96dc1ab5b22d.ctex"]
+source_file="res://IMAGES/ui/Piedad apagado.png"
+dest_files=["res://.godot/imported/Piedad apagado.png-94522ea3d4604a753fc32d6595beb776.ctex"]
 
 [params]
 

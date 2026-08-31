@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xgbql3kvmhj"
-path="res://.godot/imported/mercyHover.png-6a01bc4e01314d59374a1ca3f0f99080.ctex"
+uid="uid://bhlqlhqtuibq0"
+path="res://.godot/imported/target.png-397edc486acc02ab85da3224d394e061.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/buttons/mercyHover.png"
-dest_files=["res://.godot/imported/mercyHover.png-6a01bc4e01314d59374a1ca3f0f99080.ctex"]
+source_file="res://IMAGES/ui/target.png"
+dest_files=["res://.godot/imported/target.png-397edc486acc02ab85da3224d394e061.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7tftylc15haj"
-path="res://.godot/imported/target bar.png-6ba779accb9ca2fadc9fb5b5d8439451.ctex"
+uid="uid://cqovvnatljhdu"
+path="res://.godot/imported/Piedad Arriba.png-2a1bb6aaf8c7f11b19eb7297de482c23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/target bar.png"
-dest_files=["res://.godot/imported/target bar.png-6ba779accb9ca2fadc9fb5b5d8439451.ctex"]
+source_file="res://IMAGES/ui/Piedad Arriba.png"
+dest_files=["res://.godot/imported/Piedad Arriba.png-2a1bb6aaf8c7f11b19eb7297de482c23.ctex"]
 
 [params]
 

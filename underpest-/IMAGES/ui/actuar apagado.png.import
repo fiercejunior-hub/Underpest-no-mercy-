@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yrebr58k5i38"
-path="res://.godot/imported/item.png-19db2a286db534702ee2fffae45b9d86.ctex"
+uid="uid://gex83nc4dif3"
+path="res://.godot/imported/actuar apagado.png-e1f31e1f6cb286d9a08f047755a2068c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMAGES/item.png"
-dest_files=["res://.godot/imported/item.png-19db2a286db534702ee2fffae45b9d86.ctex"]
+source_file="res://IMAGES/ui/actuar apagado.png"
+dest_files=["res://.godot/imported/actuar apagado.png-e1f31e1f6cb286d9a08f047755a2068c.ctex"]
 
 [params]
 

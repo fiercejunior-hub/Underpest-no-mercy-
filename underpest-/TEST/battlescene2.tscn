@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://bt6mk60ytrkk6" path="res://Resources/monster.gd" id="5_oadd5"]
 [ext_resource type="AudioStream" uid="uid://r2vnbo4i1m6a" path="res://music/sfx/snd_damage_c.wav" id="6_u4v7q"]
 [ext_resource type="AudioStream" uid="uid://xslidexc8ufp" path="res://music/sfx/snd_slash.wav" id="7_jmscg"]
+[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/ui/panel.jpg" id="11_j2juj"]
+[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="12_3lvm3"]
+[ext_resource type="Script" uid="uid://ncu0r2tqlini" path="res://TEST/playerHeart.gd" id="12_m6yod"]
 [ext_resource type="AudioStream" uid="uid://vlnv4qeb5fq4" path="res://music/Something Approaching.wav" id="18_5dks8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e8wl"]
@@ -131,6 +134,8 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxgbv"]
+
 [node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music", "monster")]
 script = ExtResource("1_sv4f7")
 music = NodePath("music")
@@ -210,3 +215,46 @@ stream = ExtResource("6_u4v7q")
 
 [node name="SndSlash" type="AudioStreamPlayer" parent="slash" unique_id=1801734564]
 stream = ExtResource("7_jmscg")
+
+[node name="panel" type="Node2D" parent="." unique_id=1324214187]
+position = Vector2(576, 413)
+
+[node name="heartBox" type="NinePatchRect" parent="panel" unique_id=299412030]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("11_j2juj")
+region_rect = Rect2(0, 0, 1016, 289)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="player" type="CharacterBody2D" parent="panel" unique_id=393872086]
+script = ExtResource("12_m6yod")
+
+[node name="plrHeart" type="Sprite2D" parent="panel/player" unique_id=1684732594]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_3lvm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="panel/player" unique_id=1500837638]
+shape = SubResource("CircleShape2D_wxgbv")
+
+[node name="Camera2D" type="Camera2D" parent="panel/player" unique_id=1920391201]
+offset = Vector2(0, -64)
+enabled = false
+limit_left = -64
+limit_top = -64
+limit_right = 1216
+limit_bottom = 776
+limit_smoothed = true
+position_smoothing_enabled = true
