@@ -4,14 +4,13 @@
 [ext_resource type="Resource" uid="uid://dm3frv5hlpa67" path="res://Resources/baseMonsterStats.tres" id="2_5qrfv"]
 [ext_resource type="PackedScene" uid="uid://hsnnqvjw5pvn" path="res://TEST/controlScene.tscn" id="3_nihlg"]
 [ext_resource type="Texture2D" uid="uid://bc3hlumke0ae4" path="res://IMAGES/enemies/whimsun.png" id="3_xjl62"]
-[ext_resource type="Texture2D" uid="uid://ckck0go1wlpax" path="res://IMAGES/slash.png" id="5_hs2rp"]
+[ext_resource type="Texture2D" uid="uid://ckck0go1wlpax" path="res://IMAGES/player/slash.png" id="5_hs2rp"]
 [ext_resource type="FontFile" uid="uid://bu8rakjn5va8o" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="5_jmscg"]
 [ext_resource type="Script" uid="uid://bt6mk60ytrkk6" path="res://Resources/monster.gd" id="5_oadd5"]
 [ext_resource type="AudioStream" uid="uid://r2vnbo4i1m6a" path="res://music/sfx/snd_damage_c.wav" id="6_u4v7q"]
+[ext_resource type="PackedScene" uid="uid://bo7okngflwriq" path="res://Resources/enemies/attack-whimsun.tscn" id="7_3lvm3"]
 [ext_resource type="AudioStream" uid="uid://xslidexc8ufp" path="res://music/sfx/snd_slash.wav" id="7_jmscg"]
-[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/ui/panel.jpg" id="11_j2juj"]
-[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="12_3lvm3"]
-[ext_resource type="Script" uid="uid://ncu0r2tqlini" path="res://TEST/playerHeart.gd" id="12_m6yod"]
+[ext_resource type="PackedScene" uid="uid://cxv5y6xlp7wsg" path="res://Resources/player/heart_mode.tscn" id="11_j2juj"]
 [ext_resource type="AudioStream" uid="uid://vlnv4qeb5fq4" path="res://music/Something Approaching.wav" id="18_5dks8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e8wl"]
@@ -134,37 +133,32 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wxgbv"]
-
 [node name="BATTLESCENE" type="Node2D" unique_id=253037732 node_paths=PackedStringArray("music", "monster")]
 script = ExtResource("1_sv4f7")
 music = NodePath("music")
-monster = NodePath("whimsun")
+monster = NodePath("monsterRelated/whimsun")
 
-[node name="Control" parent="." unique_id=1918232557 node_paths=PackedStringArray("monster") instance=ExtResource("3_nihlg")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(1.25, 1.25)
-pivot_offset_ratio = Vector2(0.5, 1)
-monster = NodePath("../whimsun")
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=720560681]
+stream = ExtResource("18_5dks8")
+autoplay = true
 
-[node name="whimsun" type="AnimatedSprite2D" parent="." unique_id=1184614827]
+[node name="monsterRelated" type="Node" parent="." unique_id=344799265]
+
+[node name="whimsun" type="AnimatedSprite2D" parent="monsterRelated" unique_id=1184614827 node_paths=PackedStringArray("slash", "snd_slash", "snd_damage")]
 position = Vector2(577.24994, 170)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_bfelc")
 autoplay = "default"
 script = ExtResource("5_oadd5")
 monsterData = ExtResource("2_5qrfv")
+slash = NodePath("../../playerRelated/slash")
+snd_slash = NodePath("../../playerRelated/slash/SndSlash")
+snd_damage = NodePath("../../playerRelated/slash/SndDamageC")
 
-[node name="remoteChildren" type="Node2D" parent="whimsun" unique_id=117862826]
+[node name="remoteChildren" type="Node2D" parent="monsterRelated/whimsun" unique_id=117862826]
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="dmgOutput" type="Label" parent="whimsun/remoteChildren" unique_id=995407582]
+[node name="dmgOutput" type="Label" parent="monsterRelated/whimsun/remoteChildren" unique_id=995407582]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -182,7 +176,7 @@ theme_override_font_sizes/font_size = 32
 text = "10"
 horizontal_alignment = 1
 
-[node name="healthBar" type="ProgressBar" parent="whimsun/remoteChildren" unique_id=1948081643]
+[node name="healthBar" type="ProgressBar" parent="monsterRelated/whimsun/remoteChildren" unique_id=1948081643]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -200,61 +194,33 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6alri")
 value = 90.64
 show_percentage = false
 
-[node name="music" type="AudioStreamPlayer" parent="." unique_id=720560681]
-stream = ExtResource("18_5dks8")
-autoplay = true
+[node name="AttackWhimsun" parent="monsterRelated" unique_id=1739475137 instance=ExtResource("7_3lvm3")]
 
-[node name="slash" type="AnimatedSprite2D" parent="." unique_id=1468878715]
+[node name="playerRelated" type="Node" parent="." unique_id=2145896021]
+
+[node name="Control" parent="playerRelated" unique_id=1918232557 node_paths=PackedStringArray("monster") instance=ExtResource("3_nihlg")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.25, 1.25)
+pivot_offset_ratio = Vector2(0.5, 1)
+monster = NodePath("../../monsterRelated/whimsun")
+
+[node name="slash" type="AnimatedSprite2D" parent="playerRelated" unique_id=1468878715]
 visible = false
 position = Vector2(606, 191)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_oadd5")
 
-[node name="SndDamageC" type="AudioStreamPlayer" parent="slash" unique_id=1841123837]
+[node name="SndDamageC" type="AudioStreamPlayer" parent="playerRelated/slash" unique_id=1841123837]
 stream = ExtResource("6_u4v7q")
 
-[node name="SndSlash" type="AudioStreamPlayer" parent="slash" unique_id=1801734564]
+[node name="SndSlash" type="AudioStreamPlayer" parent="playerRelated/slash" unique_id=1801734564]
 stream = ExtResource("7_jmscg")
 
-[node name="panel" type="Node2D" parent="." unique_id=1324214187]
+[node name="heartMode" parent="playerRelated" unique_id=1682647231 instance=ExtResource("11_j2juj")]
 position = Vector2(576, 413)
-
-[node name="heartBox" type="NinePatchRect" parent="panel" unique_id=299412030]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -112.0
-offset_right = 128.0
-offset_bottom = 112.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("11_j2juj")
-region_rect = Rect2(0, 0, 1016, 289)
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
-
-[node name="player" type="CharacterBody2D" parent="panel" unique_id=393872086]
-script = ExtResource("12_m6yod")
-
-[node name="plrHeart" type="Sprite2D" parent="panel/player" unique_id=1684732594]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("12_3lvm3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="panel/player" unique_id=1500837638]
-shape = SubResource("CircleShape2D_wxgbv")
-
-[node name="Camera2D" type="Camera2D" parent="panel/player" unique_id=1920391201]
-offset = Vector2(0, -64)
-enabled = false
-limit_left = -64
-limit_top = -64
-limit_right = 1216
-limit_bottom = 776
-limit_smoothed = true
-position_smoothing_enabled = true

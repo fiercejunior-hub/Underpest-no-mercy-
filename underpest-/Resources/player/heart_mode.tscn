@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cxv5y6xlp7wsg"]
+
+[ext_resource type="Script" uid="uid://1ocnjscdibs5" path="res://Resources/player/heartBox.gd" id="1_xxfyv"]
+[ext_resource type="Texture2D" uid="uid://btk6fis3q5fuu" path="res://IMAGES/ui/panel.jpg" id="2_mdl2d"]
+[ext_resource type="Script" uid="uid://ncu0r2tqlini" path="res://Resources/player/playerHeart.gd" id="3_45eeh"]
+[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/player/DT.png" id="4_p512r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxgbv"]
+
+[node name="heartMode" type="Node2D" unique_id=1682647231]
+script = ExtResource("1_xxfyv")
+
+[node name="heartBox" type="NinePatchRect" parent="." unique_id=1970375268]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_mdl2d")
+region_rect = Rect2(0, 0, 1016, 289)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=742474398]
+script = ExtResource("3_45eeh")
+
+[node name="plrHeart" type="Sprite2D" parent="player" unique_id=885387066]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_p512r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1712025211]
+shape = SubResource("CircleShape2D_wxgbv")

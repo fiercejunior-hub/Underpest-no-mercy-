@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cpag7lpnixfld" path="res://music/sfx/Undertale Sound Effect - Heal.wav" id="6_3a7hv"]
 [ext_resource type="Texture2D" uid="uid://b1xeb1lag35pl" path="res://IMAGES/ui/buttons/act.png" id="6_rg3ar"]
 [ext_resource type="Texture2D" uid="uid://c4axw8yftrvcn" path="res://IMAGES/ui/buttons/item.png" id="7_7hbwk"]
-[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="8_fx63m"]
+[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/player/DT.png" id="8_fx63m"]
 [ext_resource type="Texture2D" uid="uid://bl1idic0qfuqt" path="res://IMAGES/ui/buttons/mercy.png" id="9_7dttt"]
 [ext_resource type="Texture2D" uid="uid://buu186qc1847g" path="res://IMAGES/ui/buttons/fightHover.png" id="9_7hbwk"]
 [ext_resource type="Texture2D" uid="uid://b3ikl78qpgrin" path="res://IMAGES/ui/buttons/actHover.png" id="11_7dttt"]

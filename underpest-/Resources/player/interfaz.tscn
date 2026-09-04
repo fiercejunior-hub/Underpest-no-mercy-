@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b67mmia3fvqgn"]
 
-[ext_resource type="Script" uid="uid://cuc8teefq40gh" path="res://Resources/interfaz.gd" id="1_rj1l6"]
+[ext_resource type="Script" uid="uid://cuc8teefq40gh" path="res://Resources/player/interfaz.gd" id="1_rj1l6"]
 
 [node name="INTERFAZ" type="Control" unique_id=28650824]
 layout_mode = 3

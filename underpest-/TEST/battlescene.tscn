@@ -16,9 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://cqovvnatljhdu" path="res://IMAGES/ui/Piedad Arriba.png" id="8_lgf7y"]
 [ext_resource type="Texture2D" uid="uid://bc3hlumke0ae4" path="res://IMAGES/enemies/whimsun.png" id="9_a152h"]
 [ext_resource type="AudioStream" uid="uid://vlnv4qeb5fq4" path="res://music/Something Approaching.wav" id="12_bum3g"]
-[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/DT.png" id="13_lgf7y"]
+[ext_resource type="Texture2D" uid="uid://debaotbwjaye5" path="res://IMAGES/player/DT.png" id="13_lgf7y"]
 [ext_resource type="AudioStream" uid="uid://cpag7lpnixfld" path="res://music/sfx/Undertale Sound Effect - Heal.wav" id="14_lgf7y"]
-[ext_resource type="Texture2D" uid="uid://ckck0go1wlpax" path="res://IMAGES/slash.png" id="18_tovgo"]
+[ext_resource type="Texture2D" uid="uid://ckck0go1wlpax" path="res://IMAGES/player/slash.png" id="18_tovgo"]
 [ext_resource type="AudioStream" uid="uid://xslidexc8ufp" path="res://music/sfx/snd_slash.wav" id="19_a152h"]
 [ext_resource type="AudioStream" uid="uid://r2vnbo4i1m6a" path="res://music/sfx/snd_damage_c.wav" id="19_l4yv5"]
 

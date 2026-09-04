@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bo7okngflwriq"]
+
+[ext_resource type="PackedScene" uid="uid://cxv5y6xlp7wsg" path="res://Resources/player/heart_mode.tscn" id="1_fdkg7"]
+[ext_resource type="PackedScene" uid="uid://br3bogkvjicv4" path="res://Resources/enemies/particle-testParticle.tscn" id="1_iv6j3"]
+
+[sub_resource type="GDScript" id="GDScript_iv6j3"]
+resource_name = "spin"
+script/source = "extends Node2D
+@export var speed = 1.0
+func _physics_process(delta: float) -> void:
+	rotate(deg_to_rad(360) * speed * delta)
+"
+
+[node name="AttackWhimsun" type="Node2D" unique_id=1739475137]
+z_index = 1
+
+[node name="spin" type="Node2D" parent="." unique_id=1027558406]
+position = Vector2(576, 413)
+script = SubResource("GDScript_iv6j3")
+speed = 0.5
+
+[node name="testParticle" parent="spin" unique_id=784659917 instance=ExtResource("1_iv6j3")]
+position = Vector2(128, 0)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle2" parent="spin" unique_id=359484608 instance=ExtResource("1_iv6j3")]
+position = Vector2(110.85125, 64)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle3" parent="spin" unique_id=1187447692 instance=ExtResource("1_iv6j3")]
+position = Vector2(64, 110.85125)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle4" parent="spin" unique_id=384955794 instance=ExtResource("1_iv6j3")]
+position = Vector2(7.83774e-15, 128)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle5" parent="spin" unique_id=729973467 instance=ExtResource("1_iv6j3")]
+position = Vector2(-64, 110.85125)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle6" parent="spin" unique_id=1226418119 instance=ExtResource("1_iv6j3")]
+position = Vector2(-110.85125, 64)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle7" parent="spin" unique_id=917399366 instance=ExtResource("1_iv6j3")]
+position = Vector2(-128, 7.2518895e-14)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle8" parent="spin" unique_id=667723767 instance=ExtResource("1_iv6j3")]
+position = Vector2(-110.85125, -64)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle9" parent="spin" unique_id=902214223 instance=ExtResource("1_iv6j3")]
+position = Vector2(-64, -110.85125)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle10" parent="spin" unique_id=1375809453 instance=ExtResource("1_iv6j3")]
+position = Vector2(-2.3513218e-14, -128)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle11" parent="spin" unique_id=174578370 instance=ExtResource("1_iv6j3")]
+position = Vector2(64, -110.85125)
+scale = Vector2(0.188, 0.188)
+
+[node name="testParticle12" parent="spin" unique_id=578621808 instance=ExtResource("1_iv6j3")]
+position = Vector2(110.85125, -64)
+scale = Vector2(0.188, 0.188)
+
+[node name="heartMode" parent="." unique_id=1682647231 instance=ExtResource("1_fdkg7")]
+z_index = -1
+position = Vector2(576, 413)

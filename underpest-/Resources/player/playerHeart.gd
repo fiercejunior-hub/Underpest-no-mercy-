@@ -7,6 +7,7 @@ const SPEED = 300.0
 
 
 func _physics_process(delta: float) -> void:
+	if (!visible): return
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("izquierda","derecha","arriba","abajo")

@@ -20,9 +20,9 @@ func _ready() -> void:
 	# this sets up the health bar
 	healthBar.max_value = monsterData.MaxHealth
 
-@onready var slash : AnimatedSprite2D = $"../slash"
-@onready var snd_slash : AudioStreamPlayer = $"../slash/SndSlash"
-@onready var snd_damage : AudioStreamPlayer = $"../slash/SndDamageC"
+@export var slash : AnimatedSprite2D
+@export var snd_slash : AudioStreamPlayer
+@export var snd_damage : AudioStreamPlayer
 
 func _takeDamage(damage : int):
 	monsterData.Health -= damage
