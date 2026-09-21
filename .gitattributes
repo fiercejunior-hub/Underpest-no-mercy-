@@ -1,0 +1,29 @@
+# !! DO NOT TOUCH !! #
+
+* text=auto eol=lf
+
+*.gd text diff
+*.tscn text diff
+*.tres text diff
+*.godot text diff
+*.cfg text diff
+*.import text diff
+*.uid text diff
+*.svg text diff
+*.md text diff
+*.txt text diff
+
+# Binary stuff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.wav binary
+*.ogg binary
+*.mp3 binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.pck binary
+*.exe binary
+*.apk binary

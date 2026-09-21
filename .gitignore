@@ -1,0 +1,52 @@
+# !! DO NOT TOUCH !! #
+
+# Godot stuff
+.godot/
+android/build/
+android/.gradle/
+ios/
+.vs/
+
+# Builds and exports
+builds/
+export/
+game/
+bin/
+dist/
+*.exe
+*.pck
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.zip
+*.tar.gz
+export_presets.cfg.local
+
+# Godot temp / backup files
+*~
+*.tmp
+*.bak
+*.orig
+*.swp
+*.swo
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+*.code-workspace
+*.user
+*.suo
+
+# GameMaker leftovers just in case
+*.yy
+*.yyp
+*.gml
+*.vsh
+*.fsh

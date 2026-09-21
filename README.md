@@ -1,6 +1,5 @@
 # Underpest-no-mercy-
 Undertale AU fangame project
-# Underpest No Mercy
 
 An Undertale fangame set in an alternate universe where red flowers infect monsters, transforming them into violent, hungry, zombie-like creatures. In this world, the only option is to spare—the only way to survive is to fight the infected.
 
