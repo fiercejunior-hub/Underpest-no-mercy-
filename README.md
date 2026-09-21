@@ -16,5 +16,5 @@ Frisk and Flowey explore the destroyed Underground, finding survivors and fighti
 - Newly infected: can be spared, but return fully infected later, forcing the player to fight.
 
 ## Development
-- Graphics engine: Game Maker
+- Graphics engine: Godot Engine (Mono/C#/DotNet) G̶a̶m̶e̶ ̶M̶a̶k̶e̶r̶
 - Team: Artists, composers
